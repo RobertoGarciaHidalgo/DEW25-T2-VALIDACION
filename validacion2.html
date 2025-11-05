@@ -5,56 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-<style>
-    input:user-invalid {
-        background-color: red;
-    }
+    <style>
+        input:user-invalid {
+            background-color: rgba(234, 255, 149, 0.999);
+        }
 
-    .error{
-        color:red;
-    }
-</style>
-
+        .error{
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    
-    <h1>Confirmación de contraseña</h1>
-    <!-- <form action="procesar.php" method="get" id="regristoForm"> -->
-    <form action="" id=""registroForm></form>
-    <p>
-        <label for="pass1">Contraseña (min. 8 caracteres):</label>
-        <input type="password" id="pass1" required minlength="8">
-    </p>
-    <p>
-        <label for="pass2">Contraseña (min. 8 caracteres):</label>
-        <input type="password" id="pass2" required minlength="8">
-        <span id="passError" class="error"></span>
-    </p>
-    <p>
-        <button type="submit">Enviar</button>
-    </p>
-        </form>
-        <script>
-            const pass1Input = document.getElementById('pass1');
-            const pass2Input = document.getElementById('pass2');
-            const form = document.getElementById('regristroform');
-            const passErrorSpan = document.getElementById('passError');
+    <h1>Confirmación de contraseña</h1> 
 
-            function checkPasswords(){
-                if (pass1Input.value === pass2Input.value) {
-                    pass2Input.setCustomValidity('');
-                } else {
-                    errorText = "Las contraseñas no coinciden";
-                    pass2Input.setCustomValidity(errorText);
-                    passErrorSpan.textContent = errorText;
-                }
-                form.reportValidity();
+    <form action="" id="registroForm">
+        <p>
+            <label for="pass1">Contraseña (min 8 caracteres):</label>
+            <input type="password" id="pass1" name="pass1" required minlength="8">
+        </p>
+
+        <p>
+            <label for="pass2">Repite Contraseña (min 8 caracteres):</label>
+            <input type="password" id="pass2" required minlength="8">
+            <span id="passError" class="error"></span>
+        </p>
+        <p>
+            <button type="submit">Enviar</button>
+        </p>
+
+
+    </form>
+
+    <script>
+        const pass1Input = document.getElementById('pass1');
+        const pass2Input = document.getElementById('pass2');
+        const form = document.getElementById('registroForm');
+        const passErrorSpan = document.getElementById('passError');
+
+
+        function checkPasswords(){
+            if(pass1Input.value === pass2Input.value){
+                pass2Input.setCustomValidity('');
+
+            } else{
+                errorText = "Nigga Password Error";
+                pass2Input.setCustomValidity(errorText)
             }
 
-            pass1Input.addEventListener('change', checkPasswords);
-            pass2Input.addEventListener('change', checkPasswords);
+            form.reportValidity();
+        }
 
-            
-        </script>
+        pass1Input.addEventListener('change', checkPasswords);
+        pass2Input.addEventListener('change', checkPasswords);
+
+        
+
+
+    </script>
+
+
+        
 </body>
 </html>
